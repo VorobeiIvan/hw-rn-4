@@ -1,31 +1,39 @@
 import { FC, useState } from "react";
+import { launchImageLibrary } from "react-native-image-picker";
 import Container from "../Containers/Container";
 import CustomImage from "../CustomImage/CustomImage";
-import Button from "../Button/Button";
-import Icon from "../Icon/Icon";
+import Button from "../Buttons/Button";
 import { ICONS, IMAGES } from "../../constants";
+import { AvatarProps } from "./AvatarTypes";
 
-type AvatarProps = {};
-
-const Avatar: FC<AvatarProps> = () => {
-  const [avatarImage, setAvatarImage] = useState(IMAGES.DEFAULT_AVATAR);
-  const [icon, setIcon] = useState(ICONS.ADD_AVATAR_BUTTON);
+const Avatar: FC<AvatarProps> = ({ avatarImage: initialAvatarImage }) => {
+  const [avatarImage, setAvatarImage] = useState(
+    initialAvatarImage || IMAGES.DEFAULT_AVATAR
+  );
 
   const handleAvatarChange = () => {
-    if (icon === ICONS.ADD_AVATAR_BUTTON) {
-      setIcon(ICONS.REMOVE_AVATAR_BUTTON);
-      setAvatarImage(IMAGES.GIRL);
-    } else {
-      setIcon(ICONS.ADD_AVATAR_BUTTON);
+    // Якщо аватар вже обраний, повертаємо його до стандартного
+    if (avatarImage !== IMAGES.DEFAULT_AVATAR) {
       setAvatarImage(IMAGES.DEFAULT_AVATAR);
+    } else {
+      // В іншому випадку відкриваємо галерею для вибору нового фото
+      launchImageLibrary({ mediaType: "photo", quality: 0.8 }, (response) => {
+        if (response.assets && response.assets.length > 0) {
+          setAvatarImage(response.assets[0].uri); // Оновлюємо стан обраним фото
+        }
+      });
     }
   };
 
   return (
     <Container type="avatarContainer">
       <CustomImage source={avatarImage} />
-      <Button onPress={handleAvatarChange} type="button">
-        <Icon name={icon} width={24} height={24} />
+      <Button onPress={handleAvatarChange} typeButton="removeAvatar">
+        {avatarImage === IMAGES.DEFAULT_AVATAR ? (
+          <ICONS.ADD_AVATAR_BUTTON />
+        ) : (
+          <ICONS.REMOVE_AVATAR_BUTTON />
+        )}
       </Button>
     </Container>
   );

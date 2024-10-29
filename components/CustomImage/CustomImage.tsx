@@ -1,15 +1,11 @@
 import React from "react";
 import { Image } from "react-native";
 import styles from "./CustomImageStyles";
+import { ImgProps } from "./CustomImageTypes";
 
-type ImgProps = {
-  type?: keyof typeof styles;
-  source: string;
-};
-
-const CustomImage: React.FC<ImgProps> = ({ type = "image", source }) => {
+const CustomImage: React.FC<ImgProps> = ({ typeImage = "image", source }) => {
   return (
-    <Image source={{ uri: source }} style={[styles[type], styles.image]} />
+    <Image source={{ uri: source }} style={[styles[typeImage], styles.image]} />
   );
 };
 

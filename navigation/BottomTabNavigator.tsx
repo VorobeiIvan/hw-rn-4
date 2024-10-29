@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 // import Ionicons from "@expo/vector-icons/Ionicons";
-import BackButton from "../components/BackButton";
+import BackButton from "../components/Buttons/BackButton";
 // import MapScreen from "../screens/MapScreen";
 import CreatePostsScreen from "../screens/CreatePostsScreen";
 import Home from "../icons/Home";

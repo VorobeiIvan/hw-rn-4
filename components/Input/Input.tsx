@@ -1,21 +1,8 @@
-import { TextInput, View, ViewProps, TextInputProps } from "react-native";
+import { TextInput, View } from "react-native";
 import { FC, useState } from "react";
+import { InputProps } from "./InputType";
+
 import styles from "./InputStyles";
-
-
-type InputProps = {
-  value: string;
-  placeholder?: string;
-  outerStyles?: ViewProps["style"];
-  rightButton?: React.ReactNode;
-  onChangeText?: (text: string) => void; 
-  secureTextEntry?: boolean;
-  autofocus?: boolean;
-  inputMode?: TextInputProps["inputMode"];
-  maxLength?: number;
-  textContentType?: TextInputProps["textContentType"];
-  keyboardType?: TextInputProps["keyboardType"];
-};
 
 const Input: FC<InputProps> = ({
   value,
@@ -45,7 +32,7 @@ const Input: FC<InputProps> = ({
       <TextInput
         value={value}
         autoFocus={autofocus}
-        onChangeText={onChangeText} 
+        onChangeText={onChangeText}
         placeholder={placeholder}
         secureTextEntry={secureTextEntry}
         style={styles.text}

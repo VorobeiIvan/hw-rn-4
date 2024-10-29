@@ -21,6 +21,10 @@ const styles = StyleSheet.create({
     fontWeight: FONTS.WEIGHTS.BOLD,
     color: COLORS.BLACK_PRIMARY,
   } as TextStyle,
+
+  subtitle: {},
+  lightText: {},
+  button: {},
 });
 
 export default styles;

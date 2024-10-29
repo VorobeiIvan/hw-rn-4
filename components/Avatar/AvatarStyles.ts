@@ -1,11 +1,8 @@
 import { StyleSheet } from "react-native";
+import { BORDER_RADIUS, COLORS, PADDING } from "../../constants";
 
 const styles = StyleSheet.create({
-  iconContainer: {
-    width: 24,
-    height: 24,
-    resizeMode: "contain",
-  },
+  avatar: {},
 });
 
 export default styles;

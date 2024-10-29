@@ -14,7 +14,7 @@ import {
 } from "react-native";
 import { colors } from "../styles/global";
 import Input from "../components/Input";
-import Button from "../components/Button";
+import Button from "../components/Buttons";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 

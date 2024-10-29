@@ -1,5 +1,5 @@
 export { default as Avatar } from "./Avatar/Avatar";
-export { default as Button } from "./Button/Button";
+export { default as Button } from "./Buttons/Button";
 export { default as Container } from "./Containers/Container";
 export { default as CustomImage } from "./CustomImage/CustomImage";
 export { default as Form } from "./Forms/Form";
