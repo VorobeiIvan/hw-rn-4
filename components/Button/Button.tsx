@@ -1,19 +1,29 @@
 import { FC } from "react";
-import { TouchableOpacity } from "react-native";
-import styles from "./ButtonStyles";
+import { StyleSheet, TouchableOpacity, ViewStyle } from "react-native";
+
+import { colors } from "../styles/global";
 
 type ButtonProps = {
-  children?: React.ReactNode;
+  children: React.ReactNode;
+  buttonStyle?: ViewStyle;
   onPress: () => void;
-  type?: keyof typeof styles;
 };
 
-const Button: FC<ButtonProps> = ({ children, onPress, type = "button" }) => {
+const Button: FC<ButtonProps> = ({ children, onPress, buttonStyle }) => {
   return (
-    <TouchableOpacity style={[styles[type], styles.button]} onPress={onPress}>
+    <TouchableOpacity style={[style.button, buttonStyle]} onPress={onPress}>
       {children}
     </TouchableOpacity>
   );
 };
 
 export default Button;
+
+const style = StyleSheet.create({
+  button: {
+    borderRadius: 100,
+    backgroundColor: colors.orange,
+    paddingVertical: 16,
+    paddingHorizontal: 32,
+  },
+});
