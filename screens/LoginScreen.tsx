@@ -9,14 +9,12 @@ import {
   passwordInputProps,
 } from "../components/Input/InputProps";
 import { validateEmail, validatePassword } from "../utils";
+import { StackScreenProps } from "@react-navigation/stack";
+import { StackParamList } from "../navigation/navigationType";
 
-type LoginScreenProps = {
-  navigator: {
-    navigate: (screen: string) => void;
-  };
-};
+type LoginScreenProps = StackScreenProps<StackParamList, "Login">;
 
-const LoginScreen: React.FC<LoginScreenProps> = ({ navigator }) => {
+const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <KeyboardAvoidingView
@@ -39,10 +37,10 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigator }) => {
             handleSubmit={() => {
               validateEmail(emailInputProps.value);
               validatePassword(passwordInputProps.value);
-              navigator.navigate("Home");
+              navigation.navigate("Home");
             }}
             handleAlternativeAction={() => {
-              navigator.navigate("Registration");
+              navigation.navigate("Registration");
             }}
           />
         </Container>

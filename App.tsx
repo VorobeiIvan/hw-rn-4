@@ -1,34 +1,19 @@
+import "react-native-gesture-handler";
 import React from "react";
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 import useRobotoFonts from "./hooks/useFonts";
-import { ICONS } from "./constants";
-import { Button } from "./components";
+import StackNavigator from "./navigation/StackNavigator";
+import { ActivityIndicator } from "react-native";
 
-export default function App() {
+export default () => {
   const fontsLoaded = useRobotoFonts();
 
   if (!fontsLoaded) {
     return <ActivityIndicator size="large" />;
   }
-  type T = (typeof ICONS)[keyof typeof ICONS];
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-
-      <ICONS.ADD_AVATAR_BUTTON />
-
-      <ICONS.REMOVE_AVATAR_BUTTON />
-      <Button typeButton={"button"} onPress={() => {}}>
-        Вхід
-      </Button>
-    </View>
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
+};

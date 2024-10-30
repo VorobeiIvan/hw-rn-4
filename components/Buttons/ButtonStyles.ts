@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
   },
   link: {},
-  primary:{},
+  primary: {},
+  goBack: {},
 });
 
 export default styles;
