@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     zIndex: -1,
     backgroundColor: COLORS.LIGHT_GRAY,
   },
+  avatar: {},
 });
 
 export default styles;

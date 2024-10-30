@@ -3,70 +3,46 @@ import {
   Dimensions,
   Image,
   Keyboard,
+  KeyboardAvoidingView,
+  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import { colors } from "../styles/global";
 import PostsScreen from "./PostsScreen";
+import { COLORS, IMAGES, TITLE } from "../constants";
+import { Avatar, Container, CustomImage } from "../components";
+import CustomText from "../components/Title/CustomText";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
 const ProfileScreen = ({ navigation }: { navigation: any }) => {
-  const [avatar, setAvatar] = useState(
-    require("../assets/images/default-avatar.png")
-  );
+  const [avatar, setAvatar] = useState(IMAGES.DEFAULT_AVATAR);
   const [isAvatarDefault, setIsAvatarDefault] = useState(true);
 
   const addAvatar = () => {
-    setAvatar(
-      isAvatarDefault
-        ? require("../assets/images/avatar.jpg")
-        : require("../assets/images/default-avatar.png")
-    );
+    setAvatar(isAvatarDefault ? IMAGES.AVATAR : IMAGES.DEFAULT_AVATAR);
     setIsAvatarDefault((prev) => !prev);
   };
 
-  const avatarButtonStyle = isAvatarDefault
-    ? styles.addAvatarButton
-    : styles.removeAvatarButton;
-  const borderColor = isAvatarDefault ? colors.orange : colors.border_gray;
-
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.container}>
-        <Image
-          source={require("../assets/images/background.png")}
-          resizeMode="cover"
-          style={styles.image}
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={{ flex: 1 }}
+      >
+        <CustomImage
+          typeImage="backgroundImage"
+          source={IMAGES.MAIN_BACKGROUND}
         />
-        <View style={styles.formContainer}>
-          <View style={styles.avatarContainer}>
-            <Image source={avatar} resizeMode="contain" style={styles.avatar} />
-            <TouchableOpacity
-              onPress={addAvatar}
-              style={[avatarButtonStyle, { borderColor }]}
-            >
-              <Image
-                source={
-                  isAvatarDefault
-                    ? require("../assets/images/add.png")
-                    : require("../assets/images/remove.png")
-                }
-                resizeMode="cover"
-                style={styles.image}
-              />
-            </TouchableOpacity>
-          </View>
-          <Text style={styles.title}>Natali Romanova</Text>
-
-          <View style={[styles.innerContainer, styles.inputContainer]}>
-            <PostsScreen />
-          </View>
-        </View>
-      </View>
+        <Container typeContainer="container">
+          <Avatar onPress={() => navigation.navigate("Profile")} />
+          <CustomText typeCustomText="title">Natali Romanova</CustomText>
+          <PostsScreen />
+        </Container>
+      </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
   );
 };
@@ -98,7 +74,7 @@ const styles = StyleSheet.create({
   formContainer: {
     height: "90%",
     width: SCREEN_WIDTH,
-    backgroundColor: colors.white,
+    backgroundColor: COLORS.WHITE,
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
     paddingHorizontal: 16,
@@ -120,11 +96,11 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   loginButtonText: {
-    color: colors.white,
+    color: COLORS.WHITE,
     textAlign: "center",
   },
   passwordButtonText: {
-    color: colors.blue,
+    color: COLORS.BLUE,
   },
   passwordButton: {
     flexDirection: "row",
@@ -140,7 +116,7 @@ const styles = StyleSheet.create({
     marginBottom: 46,
   },
   avatar: {
-    backgroundColor: colors.light_gray,
+    backgroundColor: COLORS.LIGHT_GRAY,
     borderRadius: 16,
     width: 120,
     height: 120,
@@ -168,7 +144,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 12,
     right: -12,
-    backgroundColor: colors.light_gray,
+    backgroundColor: COLORS.LIGHT_GRAY,
   },
   addAvatarButtonText: {
     fontSize: 18,

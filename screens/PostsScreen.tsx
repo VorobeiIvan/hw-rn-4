@@ -1,18 +1,17 @@
-import { Image, StyleSheet, Text, View } from "react-native";
-import { colors } from "../styles/global";
+import { StyleSheet } from "react-native";
+import { COLORS, IMAGES } from "../constants";
+import { Container, CustomImage } from "../components";
+import CustomText from "../components/Title/CustomText";
 
 const PostsScreen = () => {
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={require("../assets/images/avatar.jpg")}
-      />
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>Natali Romanova</Text>
-        <Text style={styles.text}>email@example.com</Text>
-      </View>
-    </View>
+    <Container typeContainer={"container"}>
+      <CustomImage typeImage={"avatar"} source={IMAGES.AVATAR} />
+      <Container typeContainer={"textContainer"}>
+        <CustomText typeCustomText={"title"}>Natali Romanova</CustomText>
+        <CustomText typeCustomText={"lightText"}>email@example.com</CustomText>
+      </Container>
+    </Container>
   );
 };
 
@@ -23,12 +22,12 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "flex-start",
-    backgroundColor: colors.white,
+    backgroundColor: COLORS.WHITE,
     gap: 8,
     paddingTop: 32,
     paddingHorizontal: 16,
     borderTopWidth: 1,
-    borderTopColor: colors.border_gray,
+    borderTopColor: COLORS.BORDER_GRAY,
   },
   image: {
     height: 60,
@@ -41,7 +40,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: colors.black_primary,
+    color: COLORS.BLACK_PRIMARY,
   },
   text: {
     color: "rgba(33, 33, 33, 0.80)",

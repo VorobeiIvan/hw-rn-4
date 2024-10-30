@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
   messageContentContainer: {},
 
   messageContainer: {},
+  textContainer: {},
 });
 
 export default styles;
