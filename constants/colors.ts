@@ -6,6 +6,7 @@ const COLORS = {
   BORDER_GRAY: "#E8E8E8",
   BLUE: "#1B4371",
   ORANGE: "#FF6C00",
+  ERROR:"#FF0000",
 };
 
 export default { COLORS, ...COLORS };

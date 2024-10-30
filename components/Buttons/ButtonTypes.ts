@@ -1,4 +1,3 @@
-import { StyleProp, ViewStyle, TextStyle } from "react-native";
 import styles from "./ButtonStyles";
 
 export type ButtonProps = {

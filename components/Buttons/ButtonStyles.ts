@@ -12,6 +12,8 @@ const styles = StyleSheet.create({
   backButton: {
     backgroundColor: "transparent",
   },
+  link: {},
+  primary:{},
 });
 
 export default styles;

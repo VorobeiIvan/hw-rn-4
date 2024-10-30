@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   subtitle: {},
   lightText: {},
   button: {},
+  alternativeText:{},
 });
 
 export default styles;

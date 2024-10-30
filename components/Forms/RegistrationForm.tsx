@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "./Form";
+import Form from "./Forms";
 import { useFormFields } from "../../hooks";
 import { isValidEmail } from "../../utils/formHelpers";
 

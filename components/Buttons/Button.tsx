@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { TouchableOpacity } from "react-native";
 import { ButtonProps } from "./ButtonTypes";
-import Title from "../Title/Title";
 
 import styles from "./ButtonStyles";
+import CustomText from "../Title/CustomText";
 
 const Button: FC<ButtonProps> = ({
   children,
@@ -17,7 +17,7 @@ const Button: FC<ButtonProps> = ({
       activeOpacity={0.7}
     >
       {typeof children === "string" ? (
-        <Title typeTitle={styles[typeButton]}>{children}</Title>
+        <CustomText typeCustomText="button">{children}</CustomText>
       ) : (
         children
       )}

@@ -4,7 +4,7 @@ import { ContainerProps } from "./ContainerTypes";
 
 import styles from "./ContainerStyles";
 
-const Container: React.FC<ContainerProps> = ({ children, type }) => {
-  return <View style={[styles[type || "container"]]}>{children}</View>;
+const Container: React.FC<ContainerProps> = ({ children, typeContainer }) => {
+  return <View style={[styles[typeContainer || "container"]]}>{children}</View>;
 };
 export default Container;
