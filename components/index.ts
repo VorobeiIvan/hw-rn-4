@@ -7,4 +7,4 @@ export { default as RegistrationForm } from "./Forms/RegistrationForm";
 export { default as AuthorizationForm } from "./Forms/AuthorizationForm";
 export { default as Input } from "./Input/Input";
 // // export { default as Message } from "./Message/Message";
-export { default as Title } from "./Title/CustomText";
+export { default as Title } from "./CustomText/CustomText";

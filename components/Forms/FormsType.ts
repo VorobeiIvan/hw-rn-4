@@ -1,12 +1,11 @@
-import { InputProps } from "../Input/InputType";
+// FormsType.ts
+import { Field } from "../Input/InputType";
 
-// Інтерфейс для пропсів форми
 export interface FormProps {
-  fields: InputProps; // Масив полів
-  submitText: string; // Текст кнопки "Відправити"
-  alternativeText: string; // Альтернативний текст
-  alternativeActionText: string; // Текст альтернативної дії
-  handleSubmit: () => void; // Функція обробки відправлення
-  handleAlternativeAction: () => void; // Функція для альтернативної дії
+  fields: Field[]; // Залишив тип масиву для полів
+  submitText: string;
+  alternativeText: string;
+  alternativeActionText: string;
+  handleSubmit: () => void;
+  handleAlternativeAction: () => void;
 }
-

@@ -21,41 +21,30 @@ export type InputProps = {
   required?: boolean;                               
   showCharacterCount?: boolean;                     
   autoComplete?: TextInputProps["autoComplete"]; 
-  autoCorrect?: boolean;                           
+  autoCorrect?: boolean;                            
   icon?: React.ReactNode;                           
   showTogglePassword?: boolean;                     
 };
 
-// Стилі для текстових елементів та контейнера інпуту
-export type InputStyles = {
-  inputContainer: ViewStyle;
-  text: TextStyle;
-  focused: TextStyle;
-  charCounter: TextStyle;
-  errorText: TextStyle;
-  required: TextStyle;
-  icon: ViewStyle;
-};
-
-
+// Інтерфейс поля вводу, виправлений тип для inputMode
 export interface Field {
-  id?: string; // Унікальний ідентифікатор
+  id?: string;
   value: string;
   onChangeText: (text: string) => void;
   placeholder: string;
-  outerStyles?: object;
+  outerStyles?: ViewStyle; // Змінено тип на ViewStyle
   rightButton?: React.ReactNode;
-  inputMode?: "text" | "numeric" | "email" | "decimal" | "search";
-  autoFocus?: boolean;
+  inputMode?: TextInputProps["inputMode"]; // Змінено тип на TextInputProps["inputMode"]
+  autofocus?: boolean;
   secureTextEntry?: boolean;
   maxLength?: number;
-  textContentType?: string;
-  keyboardType?: string;
-  validationFunction?: (value: string) => boolean;
+  textContentType?: TextInputProps["textContentType"];
+  keyboardType?: TextInputProps["keyboardType"];
+  validationFunction?: (value: string) => string | null;
   errorMessage?: string;
   required?: boolean;
   showCharacterCount?: boolean;
-  autoComplete?: string;
+  autoComplete?: TextInputProps["autoComplete"];
   autoCorrect?: boolean;
   icon?: React.ReactNode;
   showTogglePassword?: boolean;

@@ -1,11 +1,12 @@
 import React from "react";
-import CustomText from "../Title/CustomText";
+import CustomText from "../CustomText/CustomText";
 import Container from "../Containers/Container";
 import { FormProps } from "./FormsType";
 
 import Button from "../Buttons/Button";
-import Input from "../Input/Input";
+
 import { Field } from "../Input/InputType";
+import Input from "../Input/Input";
 
 const Form: React.FC<FormProps> = ({
   fields,
@@ -17,14 +18,9 @@ const Form: React.FC<FormProps> = ({
 }) => {
   return (
     <Container typeContainer={"container"}>
-      {fields.map(
-        (
-          field: Field,
-          index: number // Вказуємо тип для field та index
-        ) => (
-          <Input {...field} key={field.id || index} />
-        )
-      )}
+      {fields.map((field: Field, index: number) => (
+        <Input {...field} key={field.id || index} />
+      ))}
 
       <Button onPress={handleSubmit} typeButton="primary">
         {submitText}
