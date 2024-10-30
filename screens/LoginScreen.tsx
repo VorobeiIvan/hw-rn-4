@@ -6,7 +6,6 @@ import { BUTTON, IMAGES, MESSAGE, TITLE } from "../constants";
 import CustomText from "../components/Title/CustomText";
 import {
   emailInputProps,
-  nameInputProps,
   passwordInputProps,
 } from "../components/Input/InputProps";
 import { validateEmail, validatePassword } from "../utils";
@@ -33,7 +32,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigator }) => {
             {TITLE.MAIN_TITLE_AUTHORIZATION}
           </CustomText>
           <Form
-            fields={[nameInputProps, emailInputProps, passwordInputProps]}
+            fields={[emailInputProps, passwordInputProps]}
             submitText={BUTTON.AUTHORIZATION}
             alternativeText={MESSAGE.ACCOUNT_NOT_EXISTS}
             alternativeActionText={BUTTON.REGISTRATION}

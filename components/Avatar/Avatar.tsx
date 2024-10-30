@@ -26,7 +26,7 @@ const Avatar: FC<AvatarProps> = ({ avatarImage: initialAvatarImage }) => {
   };
 
   return (
-    <Container type="avatarContainer">
+    <Container typeContainer="avatarContainer">
       <CustomImage source={avatarImage} />
       <Button onPress={handleAvatarChange} typeButton="removeAvatar">
         {avatarImage === IMAGES.DEFAULT_AVATAR ? (
