@@ -1,8 +1,8 @@
 // FormsType.ts
-import { Field } from "../Input/InputType";
+import { InputProps } from "../Input/InputType";
 
 export interface FormProps {
-  fields: Field[]; // Залишив тип масиву для полів
+  fields: InputProps[];
   submitText: string;
   alternativeText: string;
   alternativeActionText: string;

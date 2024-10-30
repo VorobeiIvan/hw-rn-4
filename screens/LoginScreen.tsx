@@ -1,14 +1,23 @@
+import React from "react";
 import { Keyboard, KeyboardAvoidingView, Platform } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { Container, CustomImage, Form } from "../components";
-import { IMAGES, TITLE } from "../constants";
-import CustomText from "../components/CustomText/CustomText";
-import { useLoginFormProps } from "../utils/useLoginFormProps"; // Імпортуємо хук
+import { BUTTON, IMAGES, MESSAGE, TITLE } from "../constants";
+import CustomText from "../components/Title/CustomText";
+import {
+  emailInputProps,
+  nameInputProps,
+  passwordInputProps,
+} from "../components/Input/InputProps";
+import { validateEmail, validatePassword } from "../utils";
 
-const LoginScreen = () => {
-  const loginFormProps = useLoginFormProps(); // Викликаємо хук
-  const fieldsArray = Object.values(loginFormProps.fields); // Перетворюємо об'єкт у масив
+type LoginScreenProps = {
+  navigator: {
+    navigate: (screen: string) => void;
+  };
+};
 
+const LoginScreen: React.FC<LoginScreenProps> = ({ navigator }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <KeyboardAvoidingView
@@ -23,7 +32,20 @@ const LoginScreen = () => {
           <CustomText typeCustomText="title">
             {TITLE.MAIN_TITLE_AUTHORIZATION}
           </CustomText>
-          <Form fields={fieldsArray} /> 
+          <Form
+            fields={[nameInputProps, emailInputProps, passwordInputProps]}
+            submitText={BUTTON.AUTHORIZATION}
+            alternativeText={MESSAGE.ACCOUNT_NOT_EXISTS}
+            alternativeActionText={BUTTON.REGISTRATION}
+            handleSubmit={() => {
+              validateEmail(emailInputProps.value);
+              validatePassword(passwordInputProps.value);
+              navigator.navigate("Home");
+            }}
+            handleAlternativeAction={() => {
+              navigator.navigate("Registration");
+            }}
+          />
         </Container>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>

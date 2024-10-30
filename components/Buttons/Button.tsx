@@ -3,7 +3,7 @@ import { TouchableOpacity } from "react-native";
 import { ButtonProps } from "./ButtonTypes";
 
 import styles from "./ButtonStyles";
-import CustomText from "../CustomText/CustomText";
+import CustomText from "../Title/CustomText";
 
 const Button: FC<ButtonProps> = ({
   children,

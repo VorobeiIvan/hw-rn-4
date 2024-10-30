@@ -1,11 +1,8 @@
 import React from "react";
-import CustomText from "../CustomText/CustomText";
+import CustomText from "../Title/CustomText";
 import Container from "../Containers/Container";
 import { FormProps } from "./FormsType";
-
 import Button from "../Buttons/Button";
-
-import { Field } from "../Input/InputType";
 import Input from "../Input/Input";
 
 const Form: React.FC<FormProps> = ({
@@ -18,7 +15,7 @@ const Form: React.FC<FormProps> = ({
 }) => {
   return (
     <Container typeContainer={"container"}>
-      {fields.map((field: Field, index: number) => (
+      {fields.map((field, index: number) => (
         <Input {...field} key={field.id || index} />
       ))}
 

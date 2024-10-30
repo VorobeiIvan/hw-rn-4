@@ -18,8 +18,7 @@ const Input: FC<InputProps> = ({
   validationFunction,         
   errorMessage,               
   required = false,           
-  showCharacterCount = false, 
-  autoComplete,           
+  showCharacterCount = false,        
   autoCorrect = true,         
   icon,                       
   showTogglePassword = false,
@@ -61,7 +60,6 @@ const Input: FC<InputProps> = ({
         inputMode={inputMode}                              // Тип введення
         textContentType={textContentType}                  // Тип вмісту для автозаповнення
         keyboardType={keyboardType}                        // Тип клавіатури
-        autoComplete={autoComplete}                // Автозаповнення для типу
         autoCorrect={autoCorrect}                          // Вмикає/вимикає автокорекцію
       />
       {showTogglePassword && (                             // Відображає кнопку для показу/приховування пароля
