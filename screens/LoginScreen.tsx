@@ -3,7 +3,7 @@ import { Keyboard, KeyboardAvoidingView, Platform } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { Container, CustomImage, Form } from "../components";
 import { BUTTON, IMAGES, MESSAGE, TITLE } from "../constants";
-import CustomText from "../components/Title/CustomText";
+import CustomText from "../components/CustomText/CustomText";
 import { validateEmail, validatePassword } from "../utils";
 import { StackScreenProps } from "@react-navigation/stack";
 import { StackParamList } from "../navigation/navigationType";

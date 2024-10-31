@@ -12,14 +12,12 @@ const Avatar: FC<AvatarProps> = ({ avatarImage: initialAvatarImage }) => {
   );
 
   const handleAvatarChange = () => {
-    // Якщо аватар вже обраний, повертаємо його до стандартного
     if (avatarImage !== IMAGES.DEFAULT_AVATAR) {
       setAvatarImage(IMAGES.DEFAULT_AVATAR);
     } else {
-      // В іншому випадку відкриваємо галерею для вибору нового фото
       launchImageLibrary({ mediaType: "photo", quality: 0.8 }, (response) => {
         if (response.assets && response.assets.length > 0) {
-          setAvatarImage(response.assets[0].uri); // Оновлюємо стан обраним фото
+          setAvatarImage(response.assets[0].uri);
         }
       });
     }

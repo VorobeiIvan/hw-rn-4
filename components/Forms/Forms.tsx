@@ -1,5 +1,5 @@
 import React from "react";
-import CustomText from "../Title/CustomText";
+import CustomText from "../CustomText/CustomText";
 import Container from "../Containers/Container";
 import { FormProps } from "./FormsType";
 import Button from "../Buttons/Button";
@@ -14,21 +14,22 @@ const Form: React.FC<FormProps> = ({
   handleAlternativeAction,
 }) => {
   return (
-    <Container typeContainer={"container"}>
+    <Container typeContainer={"inputContainer"}>
       {fields.map((field, index: number) => (
         <Input {...field} key={field.id || index} />
       ))}
-
-      <Button onPress={handleSubmit} typeButton="primary">
-        {submitText}
-      </Button>
-
-      <CustomText typeCustomText="alternativeText">
-        {alternativeText}
-        <Button onPress={handleAlternativeAction} typeButton="link">
-          {alternativeActionText}
+      <Container typeContainer={"inputContainer"}>
+        <Button onPress={handleSubmit} typeButton="primaryButton">
+          {submitText}
         </Button>
-      </CustomText>
+
+        <Container typeContainer={"signUpContainer"}>
+          <CustomText typeCustomText="baseText">{alternativeText}</CustomText>
+          <Button onPress={handleAlternativeAction} typeButton="link">
+            {alternativeActionText}
+          </Button>
+        </Container>
+      </Container>
     </Container>
   );
 };

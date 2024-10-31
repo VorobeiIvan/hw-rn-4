@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { COLORS, IMAGES } from "../constants";
 import { Container, CustomImage } from "../components";
-import CustomText from "../components/Title/CustomText";
+import CustomText from "../components/CustomText/CustomText";
 
 const PostsScreen = () => {
   return (

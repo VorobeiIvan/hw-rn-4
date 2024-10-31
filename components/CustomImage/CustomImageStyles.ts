@@ -8,13 +8,20 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   backgroundImage: {
+
     position: "absolute",
     top: 0,
     left: 0,
-    zIndex: -1,
-    backgroundColor: COLORS.LIGHT_GRAY,
+    // zIndex: -1,
+    // backgroundColor: COLORS.LIGHT_GRAY,
   },
-  avatar: {},
+  avatar: {
+    width: 50, // Встановіть відповідний розмір
+    height: 50,
+    borderRadius: 25,
+    overflow: "hidden",
+  },
 });
+
 
 export default styles;

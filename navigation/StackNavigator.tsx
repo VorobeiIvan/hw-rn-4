@@ -9,7 +9,7 @@ const Stack = createStackNavigator<StackParamList>();
 
 const StackNavigator: React.FC = () => {
   const stackNavigatorOptions = {
-    headerShown: false,
+    // headerShown: false,
   };
 
   return (

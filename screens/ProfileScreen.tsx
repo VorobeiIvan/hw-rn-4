@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { COLORS, IMAGES } from "../constants";
 import { Avatar, Container, CustomImage } from "../components";
-import CustomText from "../components/Title/CustomText";
+import CustomText from "../components/CustomText/CustomText";
 import PostsScreen from "./PostsScreen";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
