@@ -33,6 +33,7 @@ const MESSAGE = {
   ACCOUNT_NOT_EXISTS: "Немає акаунту?",
   UPLOAD_PHOTO: "Завантажте фото",
   EDIT_PHOTO: "Редагувати фото",
+  INVALID_CREDENTIALS: "Невірний логін або пароль",
 };
 
 export default {

@@ -4,17 +4,27 @@ import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { Container, CustomImage, Form } from "../components";
 import { BUTTON, IMAGES, MESSAGE, TITLE } from "../constants";
 import CustomText from "../components/Title/CustomText";
-import {
-  emailInputProps,
-  passwordInputProps,
-} from "../components/Input/InputProps";
 import { validateEmail, validatePassword } from "../utils";
 import { StackScreenProps } from "@react-navigation/stack";
 import { StackParamList } from "../navigation/navigationType";
+import { useInputProps } from "../hooks/useInputProps";
 
 type LoginScreenProps = StackScreenProps<StackParamList, "Login">;
 
 const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
+  const { emailInputProps, passwordInputProps } = useInputProps();
+
+  const handleSubmit = () => {
+    const isEmailValid = validateEmail(emailInputProps.value);
+    const isPasswordValid = validatePassword(passwordInputProps.value);
+
+    if (isEmailValid && isPasswordValid) {
+      navigation.navigate("Home");
+    } else {
+        alert(MESSAGE.INVALID_CREDENTIALS);
+    }
+  };
+
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <KeyboardAvoidingView
@@ -34,11 +44,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
             submitText={BUTTON.AUTHORIZATION}
             alternativeText={MESSAGE.ACCOUNT_NOT_EXISTS}
             alternativeActionText={BUTTON.REGISTRATION}
-            handleSubmit={() => {
-              validateEmail(emailInputProps.value);
-              validatePassword(passwordInputProps.value);
-              navigation.navigate("Home");
-            }}
+            handleSubmit={handleSubmit} 
             handleAlternativeAction={() => {
               navigation.navigate("Registration");
             }}

@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
   link: {},
   primary: {},
   goBack: {},
+  submit: {},
+  alternativeActionText: {},
 });
 
 export default styles;

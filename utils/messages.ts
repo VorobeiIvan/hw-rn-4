@@ -1,13 +1,10 @@
-// messages.ts
 
-// Повідомлення для імені
 export const nameMessages = {
     required: "Ім'я є обов'язковим.",
     minLength: "Ім'я має містити щонайменше 2 символи.",
     invalidFormat: "Ім'я має містити лише літери.",
   };
   
-  // Повідомлення для пароля
   export const passwordMessages = {
     required: "Пароль є обов'язковим.",
     minLength: "Пароль має містити щонайменше 8 символів.",
@@ -17,25 +14,21 @@ export const nameMessages = {
     specialChar: "Пароль має містити хоча б один спеціальний символ.",
   };
   
-  // Повідомлення для електронної пошти
   export const emailMessages = {
     required: "Електронна пошта є обов'язковою.",
     invalidFormat: "Введіть коректну електронну пошту.",
   };
   
-  // Повідомлення для локації
   export const locationMessages = {
     required: "Локація є обов'язковою.",
     minLength: "Локація має містити щонайменше 3 символи.",
   };
   
-  // Повідомлення для назви поста
   export const postTitleMessages = {
     required: "Назва поста є обов'язковою.",
     minLength: "Назва поста має містити щонайменше 5 символів.",
   };
   
-  // Повідомлення для повідомлення/коментаря
   export const messageMessages = {
     required: "Поле повідомлення є обов'язковим.",
     minLength: "Повідомлення має містити щонайменше 10 символів.",

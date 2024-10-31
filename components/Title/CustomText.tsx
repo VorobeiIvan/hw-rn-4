@@ -8,9 +8,13 @@ const CustomText: FC<CustomTextProps> = ({
   children,
   style,
 }) => {
-  const textStyle = typeCustomText ? styles[typeCustomText] : {}; // Отримуємо стилі на основі типу тексту
+  const textStyle = typeCustomText && styles[typeCustomText] ? styles[typeCustomText] : {};
 
-  return <Text style={[textStyle, style]}>{children}</Text>;
+  return (
+    <Text style={[textStyle, style]}>
+      {children}
+    </Text>
+  );
 };
 
 export default CustomText;

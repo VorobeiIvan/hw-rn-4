@@ -1,37 +1,25 @@
-import { useState } from "react";
+import React from "react";
 import {
   Dimensions,
-  Image,
   Keyboard,
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
-  Text,
-  TouchableOpacity,
   TouchableWithoutFeedback,
-  View,
 } from "react-native";
-import PostsScreen from "./PostsScreen";
-import { COLORS, IMAGES, TITLE } from "../constants";
+import { COLORS, IMAGES } from "../constants";
 import { Avatar, Container, CustomImage } from "../components";
 import CustomText from "../components/Title/CustomText";
+import PostsScreen from "./PostsScreen";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
 const ProfileScreen = ({ navigation }: { navigation: any }) => {
-  const [avatar, setAvatar] = useState(IMAGES.DEFAULT_AVATAR);
-  const [isAvatarDefault, setIsAvatarDefault] = useState(true);
-
-  const addAvatar = () => {
-    setAvatar(isAvatarDefault ? IMAGES.AVATAR : IMAGES.DEFAULT_AVATAR);
-    setIsAvatarDefault((prev) => !prev);
-  };
-
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={{ flex: 1 }}
+        style={styles.keyboardAvoidingView}
       >
         <CustomImage
           typeImage="backgroundImage"
@@ -50,6 +38,9 @@ const ProfileScreen = ({ navigation }: { navigation: any }) => {
 export default ProfileScreen;
 
 const styles = StyleSheet.create({
+  keyboardAvoidingView: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     alignItems: "center",

@@ -7,7 +7,7 @@ import { StackParamList } from "./navigationType";
 
 const Stack = createStackNavigator<StackParamList>();
 
-const StackNavigator = () => {
+const StackNavigator: React.FC = () => {
   const stackNavigatorOptions = {
     headerShown: false,
   };

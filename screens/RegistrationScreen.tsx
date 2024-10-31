@@ -4,20 +4,31 @@ import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { Avatar, Container, CustomImage, Form } from "../components";
 import { BUTTON, IMAGES, MESSAGE, TITLE } from "../constants";
 import CustomText from "../components/Title/CustomText";
-import {
-  emailInputProps,
-  nameInputProps,
-  passwordInputProps,
-} from "../components/Input/InputProps";
 import { validateEmail, validateName, validatePassword } from "../utils";
 import { StackScreenProps } from "@react-navigation/stack";
 import { StackParamList } from "../navigation/navigationType";
+import { useInputProps } from "../hooks/useInputProps";
 
 type RegistrationScreenProps = StackScreenProps<StackParamList, "Registration">;
 
 const RegistrationScreen: React.FC<RegistrationScreenProps> = ({
   navigation,
 }) => {
+  const { emailInputProps, nameInputProps, passwordInputProps } =
+    useInputProps();
+
+  const handleSubmit = () => {
+    const isNameValid = validateName(nameInputProps.value);
+    const isEmailValid = validateEmail(emailInputProps.value);
+    const isPasswordValid = validatePassword(passwordInputProps.value);
+
+    if (isNameValid && isEmailValid && isPasswordValid) {
+      navigation.navigate("Home");
+    } else {
+      alert(MESSAGE.INVALID_CREDENTIALS);
+    }
+  };
+
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <KeyboardAvoidingView
@@ -38,12 +49,7 @@ const RegistrationScreen: React.FC<RegistrationScreenProps> = ({
             submitText={BUTTON.REGISTRATION}
             alternativeText={MESSAGE.ACCOUNT_EXISTS}
             alternativeActionText={BUTTON.LOGIN}
-            handleSubmit={() => {
-              validateName(nameInputProps.value);
-              validateEmail(emailInputProps.value);
-              validatePassword(passwordInputProps.value);
-              navigation.navigate("Home");
-            }}
+            handleSubmit={handleSubmit}
             handleAlternativeAction={() => {
               navigation.navigate("Login");
             }}

@@ -4,23 +4,23 @@ import { InputProps } from "./InputType";
 import styles from "./InputStyles";
 
 const Input: FC<InputProps> = ({
-  value,                      
-  onChangeText,              
-  placeholder,                
-  outerStyles,               
-  rightButton,                
-  inputMode,                  
-  autofocus = false,         
-  secureTextEntry = false,   
-  maxLength,                  
-  textContentType,            
-  keyboardType,              
-  validationFunction,         
-  errorMessage,               
-  required = false,           
-  showCharacterCount = false,        
-  autoCorrect = true,         
-  icon,                       
+  value,
+  onChangeText,
+  placeholder,
+  outerStyles,
+  rightButton,
+  inputMode,
+  autofocus = false,
+  secureTextEntry = false,
+  maxLength,
+  textContentType,
+  keyboardType,
+  validationFunction,
+  errorMessage,
+  required = false,
+  showCharacterCount = false,
+  autoCorrect = true,
+  icon,
   showTogglePassword = false,
 }) => {
   const [isFocused, setIsFocused] = useState(false);                 // Стан фокусу на полі вводу
@@ -68,13 +68,19 @@ const Input: FC<InputProps> = ({
         </TouchableOpacity>
       )}
       {rightButton}                                       // Додатковий компонент, що відображається праворуч від інпуту
-      {showCharacterCount && (                            // Лічильник символів, якщо showCharacterCount = true
+      {showCharacterCount && maxLength && (               // Лічильник символів, якщо showCharacterCount = true
         <Text style={styles.charCounter}>
           {value.length}/{maxLength}
         </Text>
       )}
-      {error && <Text style={styles.errorText}>{errorMessage || error}</Text>} // Відображає повідомлення про помилку
-      {required && !value && <Text style={styles.required}>* Обов'язкове поле</Text>} // Позначка обов’язкового поля, якщо пусте
+      {error && (
+        <Text style={styles.errorText}>
+          {errorMessage ? errorMessage : error}
+        </Text>
+      )} 
+      {required && !value && (
+        <Text style={styles.required}>* Обов'язкове поле</Text>
+      )} // Позначка обов’язкового поля, якщо пусте
     </View>
   );
 };

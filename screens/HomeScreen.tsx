@@ -1,21 +1,14 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { StyleSheet } from "react-native";
 import PostsScreen from "./PostsScreen";
+import { Container } from "../components";
 
 const HomeScreen = () => {
   return (
-    <>
+    <Container typeContainer="container">
       <PostsScreen />
-      <View style={styles.container}>
-        <Image
-          style={styles.image}
-          source={require("../assets/images/avatar.jpg")}
-        />
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>Natali Romanova</Text>
-          <Text style={styles.text}>email@example.com</Text>
-        </View>
-      </View>
-    </>
+      {/* Додаткові елементи можна розмістити тут */}
+    </Container>
   );
 };
 
@@ -25,7 +18,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "flex-end",
+    justifyContent: "flex-end", // Вирівнює вміст до нижньої частини
   },
   image: {
     height: 60,

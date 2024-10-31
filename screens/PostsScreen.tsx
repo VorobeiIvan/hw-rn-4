@@ -5,11 +5,11 @@ import CustomText from "../components/Title/CustomText";
 
 const PostsScreen = () => {
   return (
-    <Container typeContainer={"container"}>
-      <CustomImage typeImage={"avatar"} source={IMAGES.AVATAR} />
-      <Container typeContainer={"textContainer"}>
-        <CustomText typeCustomText={"title"}>Natali Romanova</CustomText>
-        <CustomText typeCustomText={"lightText"}>email@example.com</CustomText>
+    <Container typeContainer="container">
+      <CustomImage typeImage="avatar" source={IMAGES.AVATAR} />
+      <Container typeContainer="textContainer">
+        <CustomText typeCustomText="title">Natali Romanova</CustomText>
+        <CustomText typeCustomText="lightText">email@example.com</CustomText>
       </Container>
     </Container>
   );
